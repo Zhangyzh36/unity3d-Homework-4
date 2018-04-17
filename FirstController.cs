@@ -18,8 +18,8 @@ public class FirstController : MonoBehaviour, ISceneController, IUserAction
     private bool isGameOver = false;                                          
     private bool isGameStart = false;
 
-    private int score_round2 = 10;                                          
-    private int score_round3 = 25;                                          
+    private int s1 = 10;                                          
+    private int s3 = 25;                                          
 
     void Start ()
     {
@@ -48,14 +48,14 @@ public class FirstController : MonoBehaviour, ISceneController, IUserAction
             }
       
             SendDisk();
-            if (scoreRecorder.score >= score_round2 && round == 1)
+            if (scoreRecorder.score >= s1 && round == 1)
             {
                 round = 2;
                 speed = speed - 0.5f;
                 CancelInvoke("LoadResources");
                 isInGame = false;
             }
-            else if (scoreRecorder.score >= score_round3 && round == 2)
+            else if (scoreRecorder.score >= s3 && round == 2)
             {
                 round = 3;
                 speed = speed - 0.5f;
@@ -85,9 +85,9 @@ public class FirstController : MonoBehaviour, ISceneController, IUserAction
             Vector3 position = new Vector3(-disk.GetComponent<DiskData>().direction.x * position_x, randomY, 0);
             disk.transform.position = position;
             
-            float power = Random.Range(10f, 15f);
-            float angle = Random.Range(15f, 28f);
-            actionManager.UFOFly(disk,angle,power);
+            float pow = Random.Range(10f, 15f);
+            float ang = Random.Range(15f, 28f);
+            actionManager.UFOFly(disk,ang,pow);
         }
 
         for (int i = 0; i < notBeShoted.Count; i++)
