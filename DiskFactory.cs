@@ -10,39 +10,19 @@ public class DiskFactory : MonoBehaviour
     private List<DiskData> free = new List<DiskData>();   
 
     public GameObject GetDisk(int round)
-    {
-        int choice = 0;
-        int seed1 = 1, seed2 = 3, seed3 = 10;           
+    {          
         float offsetY = -10f;                             
         string tag;
         diskPrefab = null;
 
-        
-        if (round == 1)
-        {
-            choice = Random.Range(0, seed1);
-        }
-        else if(round == 2)
-        {
-            choice = Random.Range(0, seed2);
-        }
-        else
-        {
-            choice = Random.Range(0, seed3);
-        }
- 
-        if(choice <= seed1)
-        {
+        int rand = Random(0, 3);
+        if (rand == 1)
             tag = "disk1";
-        }
-        else if(choice <= seed2 && choice > seed1)
-        {
+         else if (rand == 2)
             tag = "disk2";
-        }
-        else
-        {
+         else 
             tag = "disk3";
-        }
+       
 
         for(int i= free.Count - 1; i >= 0;i--)
         {
