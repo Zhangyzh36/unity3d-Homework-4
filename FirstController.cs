@@ -46,22 +46,6 @@ public class FirstController : MonoBehaviour, ISceneController, IUserAction
                 InvokeRepeating("LoadResources", 1f, speed);
                 isInGame = true;
             }
-      
-            SendDisk();
-            if (scoreRecorder.score >= s1 && round == 1)
-            {
-                round = 2;
-                speed = speed - 0.5f;
-                CancelInvoke("LoadResources");
-                isInGame = false;
-            }
-            else if (scoreRecorder.score >= s3 && round == 2)
-            {
-                round = 3;
-                speed = speed - 0.5f;
-                CancelInvoke("LoadResources");
-                isInGame = false;
-            }
         }
     }
 
