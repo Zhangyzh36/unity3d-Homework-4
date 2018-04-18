@@ -44,7 +44,7 @@ public class UserGUI : MonoBehaviour
                 GUI.Label(new Rect(820, 500, 50, 50), highestScore.ToString(), style2);
                 if (GUI.Button(new Rect(Screen.width / 2 - 20, Screen.width / 2 - 150, 100, 50), "重新开始"))
                 {
-                    XP = 6;
+                    XP = 3;
                     action.Restart();
                     return;
                 }
